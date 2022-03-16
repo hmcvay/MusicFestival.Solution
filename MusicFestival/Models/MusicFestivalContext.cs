@@ -8,7 +8,7 @@ namespace MusicFestival.Models
     public DbSet<Artist> Artists { get; set; }
     public DbSet<StageArtist> StageArtist { get; set; }
     public MusicFestivalContext(DbContextOptions options) : base(options) { }
-    protected override void OnConfiguration(DbContextOptionsBuilder optionsBuilder)
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
       optionsBuilder.UseLazyLoadingProxies();
     }

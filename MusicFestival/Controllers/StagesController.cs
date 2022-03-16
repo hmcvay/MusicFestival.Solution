@@ -19,5 +19,18 @@ namespace MusicFestival.Controllers
       List<Stage> model = _db.Stages.ToList();
       return View(model);
     }
+    public ActionResult Create()
+    {
+      return View();
+    }
+    
+    [HttpPost]
+    public ActionResult Create(Stage stage)
+    {
+      _db.Stages.Add(stage);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+    
   }
 }

@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+@using MusicFestival.Models;
+@model List<MusicFestival.Models.Stage>;
+
+<h1> Stages </h1>
+
+@if (@Model.Count == 0)
+{
+  <h3> No stages are present </h3>
+}
+
+@foreach (Stage stage in Model)
+{
+  <li>@Html.ActionLink($"{stage.Description}", "Details", new { id = stage.StageId })</li>
+}
+

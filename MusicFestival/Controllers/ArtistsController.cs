@@ -25,5 +25,17 @@ namespace MusicFestival.Controllers
       ViewBag.StageId = new SelectList(_db.Stages, "StageId", "Description");
       return View();
     }
+    [HttpPost]
+    public ActionResult Create(Artist artist, int StageId)
+    {
+      _db.Artists.Add(artist);
+      _db.SaveChanges();
+      if (StageId != 0)
+      {
+        _db.StageArtist.Add(new StageArtist() { StageId = StageId, ArtistId = artist.ArtistId });
+        _db.SaveChanges();
+      }
+      return RedirectToAction("Index");
+    }
   }
 }

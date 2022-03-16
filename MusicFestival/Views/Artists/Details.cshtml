@@ -1,0 +1,32 @@
+@{
+  Layout = "_Layout";
+}
+
+@model MusicFestival.Models.Artist
+
+<h2> Artist Details </h2>
+
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+
+@if (@Model.JoinEntities.Count == 0)
+{
+  <p> This artist is not playing on any stages currently </p>
+}
+else
+{
+  <h4> Stages this Artist is playing: </h4>
+  <ul>
+    @foreach (var join in Model.JoinEntities)
+    {
+      <li>@join.Stage.Description</li>
+      @using (Html.BeginForm("DeleteStage", "Artists"))
+      {
+        @Html.Hidden("joinId", @join.StageArtistId)
+        <input type="submit" value="Delete" />
+      }
+    }
+  </ul>
+}
+
+<p>@Html.ActionLink("Back", "Index")</p>
+<p>@Html.ActionLink("Return Home", "Index", "Home")</p>

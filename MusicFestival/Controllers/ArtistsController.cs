@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using MusicFestival.Models;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace MusicFestival.Controllers
 {
@@ -36,6 +37,15 @@ namespace MusicFestival.Controllers
         _db.SaveChanges();
       }
       return RedirectToAction("Index");
+    }
+
+    public ActionResult Details(int id)
+    {
+      var thisArtist = _db.Artists
+        .Include(thisArtist => thisArtist.JoinEntities)
+        .ThenInclude(join => join.Stage)
+        .FirstOrDefault(thisArtist => thisArtist.ArtistId == id);
+      return View(thisArtist);
     }
   }
 }

@@ -16,4 +16,8 @@
 {
   <li>@Html.ActionLink($"{stage.Description}", "Details", new { id = stage.StageId })</li>
 }
+<br>
+<p>@Html.ActionLink("Add Stage", "Create")</p>
+<p>@Html.ActionLink("View Artists", "Index", "Artists")</p>
+<p>@Html.ActionLink("Return to Home", "Index", "Home")</p>
 

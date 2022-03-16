@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc;
 using MusicFestival.Models;
 using System.Collections.Generic;
@@ -17,6 +18,12 @@ namespace MusicFestival.Controllers
     {
       List<Artist> model = _db.Artists.ToList();
       return View(model);
+    }
+
+    public ActionResult Create()
+    {
+      ViewBag.StageId = new SelectList(_db.Stages, "StageId", "Description");
+      return View();
     }
   }
 }

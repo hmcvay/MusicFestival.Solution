@@ -1,0 +1,16 @@
+@{
+  Layout = "_Layout";
+}
+
+@model MusicFestival.Models.Artist
+
+<h4>Add an Artist</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Name, "Name:")
+  @Html.TextBoxFor(model => model.Name)
+
+  <input type="submit" value="Add new Artist" class="btn btn-default" />
+  
+}

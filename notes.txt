@@ -1,0 +1,36 @@
+models:
+
+Artist (item)
+artistid
+name
+
+
+Stage (category)
+stageid
+description
+N 
+S
+E
+W
+artistid
+
+
+
+StageArtist (join entity)
+StageArtist id
+stage id
+artist id
+--virtual stage
+--virtual artist
+
+
+//Attendee
+attendeeid
+name
+?artistid?//
+
+
+
+--You should be able to assign artists to a specific stage
+--One stage can have multiple artist ids
+//All the attendees who bought tickets for artist would come along with artist//

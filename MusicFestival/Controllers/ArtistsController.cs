@@ -47,5 +47,23 @@ namespace MusicFestival.Controllers
         .FirstOrDefault(thisArtist => thisArtist.ArtistId == id);
       return View(thisArtist);
     }
+
+    public ActionResult Edit(int id)
+    {
+      var thisArtist = _db.Artists.FirstOrDefault(artist => artist.ArtistId == id);
+      ViewBag.StageId = new SelectList(_db.Stages, "StageId", "Description");
+      return View(thisArtist);
+    }
+    [HttpPost]
+    public ActionResult Edit(Artist artist, int StageId)
+    {
+      if(StageId != 0)
+      {
+        _db.StageArtist.Add(new StageArtist() { StageId = StageId, ArtistId = artist.ArtistId });
+      }
+      _db.Entry(artist).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }

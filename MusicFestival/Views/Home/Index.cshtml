@@ -2,7 +2,10 @@
   Layout = "_Layout";
 }
 
-<h1>Music Festival<h1>
+@* @await Html.PartialAsync("_BackgroundImage") *@
 
-<h3>@Html.ActionLink("View Artists", "Index", "artists")</h3>
-<h3>@Html.ActionLink("View Stages", "Index", "stages")</h3>
+
+  <h1>Music Festival<h1>
+
+  <h3>@Html.ActionLink("View Artists", "Index", "artists")</h3>
+  <h3>@Html.ActionLink("View Stages", "Index", "stages")</h3>

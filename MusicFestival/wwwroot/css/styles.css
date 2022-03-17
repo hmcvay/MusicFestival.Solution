@@ -1,0 +1,17 @@
+/* img {
+  background-repeat: repeat space;
+  background-repeat: repeat repeat;
+} */
+
+body {
+  background-image: url(/img/chumby.jpg);
+  background-repeat: repeat;
+}
+
+.page-content {
+  text-align: center;
+  width: 400px;
+  height: auto;
+  background-color: white;
+  border: 2px red solid;
+}

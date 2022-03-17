@@ -31,6 +31,15 @@ namespace MusicFestival.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    public ActionResult Details(int id)
+    {
+      var thisStage = _db.Stages
+        .Include(stage => stage.JoinEntities)
+        .ThenInclude(join => join.Artist)
+        .FirstOrDefault(stage => stage.StageId == id);
+      return View(thisStage);
+    }
     
   }
 }

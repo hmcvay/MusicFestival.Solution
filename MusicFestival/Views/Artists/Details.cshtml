@@ -27,7 +27,7 @@ else
     }
   </ul>
 }
-<p>@Html.ActionLink("Add Stage", "AddStage")</p>
+<p>@Html.ActionLink("Add Stage", "AddStage", new { id = Model.ArtistId})</p>
 <p>@Html.ActionLink("Edit", "Edit", new{id = Model.ArtistId})</p>
 <p>@Html.ActionLink("Delete", "Delete", new{id = Model.ArtistId})</p>
 <p>@Html.ActionLink("Back", "Index")</p>

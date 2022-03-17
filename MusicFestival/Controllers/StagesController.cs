@@ -40,6 +40,20 @@ namespace MusicFestival.Controllers
         .FirstOrDefault(stage => stage.StageId == id);
       return View(thisStage);
     }
+
+    public ActionResult Edit(int id)
+    {
+      var thisStage = _db.Stages.FirstOrDefault(stage => stage.StageId == id);
+      return View(thisStage);
+    }
+    
+    [HttpPost]
+    public ActionResult Edit(Stage stage)
+    {
+      _db.Entry(stage).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
     
   }
 }

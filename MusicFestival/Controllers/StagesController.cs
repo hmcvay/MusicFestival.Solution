@@ -71,5 +71,13 @@ namespace MusicFestival.Controllers
         _db.SaveChanges();
         return RedirectToAction("Index");
     }
+    [HttpPost]
+    public ActionResult DeleteArtist(int joinId)
+    {
+        var joinEntry = _db.StageArtist.FirstOrDefault(entry => entry.StageArtistId == joinId);
+        _db.StageArtist.Remove(joinEntry);
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+    }
   }
 }

@@ -26,8 +26,34 @@ html {
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   text-align: center;
+  font-family: serif;
   width: 400px;
   height: auto;
   background-color: white;
   border: 2px red solid;
+}
+
+.footer {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background: rgb(253, 249, 2);
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+  font-family: serif;
+  
+}
+
+a {
+  color: #666;
+}
+
+h1 {
+  font-size: 35px;
+  color: rgb(196, 45, 45);
+}
+
+li {
+  font-size: 25px;
 }
